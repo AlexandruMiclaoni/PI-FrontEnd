@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* * {box-sizing: border-box;} */
+
+.register-form {
+    width: 300px;
+}
+
+.names {
+    display: flex;
+    gap: 8px;
+}
+
+.mid-fields {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bottom-fields {
+    margin-top: 16px;
+    padding-bottom: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+h3 {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: medium;
+    color: rgb(5, 5, 95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+h1 {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 26px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 40px;
+}
+
+.error-message {
+    color: red;
+    font-size: 18px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+}

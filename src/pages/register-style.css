@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {box-sizing: border-box; margin: 0px;}
+
+.main {
+    display: flex;
+    height: 100vh; /* Set the height of the container to 100% of the viewport height */
+}
+
+.left {
+    flex: 1;
+    min-width: 400px;
+
+    background-color: #f1f1f1; /* Optional: Apply a background color to the left section */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    flex: 2;
+    background-image: url("http://localhost:3000/a.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* Media query for screens up to a maximum width of 768px */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column; /* Stack the left and right sections vertically */
+  }
+
+  .right {
+    display: none; /* Hide the right section on mobile screens */
+  }
+}

@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.content {
+    position: relative;
+    margin-top: 150px;
+    padding: 20px;
+    flex: 1;
+    z-index: 5;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.left {
+    margin-left: 30px; /* Adjust the margin from the left */
+    margin-top: 25px; /* Add margin from the top */
+}
+  
+.events-title {
+    font-size: 2.5rem; /* Adjust the font size for the 'Events' title */
+    margin: 20px 0; /* Add more margin from the top */
+}
+  
+.right {
+    border: 1px solid #ccc; /* Add borders to the right side */
+    border-radius: 10px; /* Add round corners */
+    padding: 20px; /* Add more padding for better appearance */
+    margin-top: 25px; /* Add more space from the top */
+    margin-right: 30px; /* Add more space from the right */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+  
+.right ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+  
+.right li {
+    margin-left: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.right li a{
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.right li:first-child {
+    margin-left: 20px;
+}
+
+.right li:last-child {
+    margin-right: 20px;
+}
+
+.admin-only {
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.admin-only:hover{
+    cursor: pointer;
+    color: #ff5733;
+}
+
+.notification:hover{
+    cursor: pointer;
+    color: #ff5733;
+}
+  
+.profile:hover{
+    cursor: pointer;
+    color: #ff5733;
+}
+
+.events-title:hover{
+    cursor: pointer;
+    color: #ff5733;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-btn {
+    width: 30px;
+    height: 30px;
+    background: url('logoutblack.png') no-repeat;
+    background-size: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-btn:hover{
+    background: url('logoutorange.png') no-repeat;
+    background-size: 30px;
+    
+}

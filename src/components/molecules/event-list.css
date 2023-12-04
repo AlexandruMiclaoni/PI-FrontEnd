@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+.eventnmap {
+    display: flex;
+}
+
+.events-body {
+    width: 50%;
+}
+
+.map-body {
+    width: 50%;
+}
+
+.event-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.event-card {
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;    
+    margin: 16px;
+    background-color: #eeeded;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    background-color: rgb(234, 234, 239);
+    border-radius: 16px;
+    border: 1px solid rgb(205, 205, 205);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    font-size: larger;
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.event-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff5733;
+}
+  
+.event-location {
+    font-size: 16px;
+    color: #333;
+}
+  
+.event-time {
+    font-size: 16px;
+    color: #555;
+    margin-top: 8px;
+}
+  
+.event-button {
+    display: flex;
+    justify-content: flex-end;
+}
+  
+.view-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 16px; /* Increased button size */
+    border-radius: 6px; /* Rounded corners for the button */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 8px;
+}
+  
+.view-button:hover {
+    color: #ff5733;
+}
+
+.event-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  
+.event-modal {
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%; /* Adjust the width as needed */
+    max-height: 90%; /* Adjust the height as needed */
+    overflow: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 500px; /* Set the width to 600px */
+    height: 500px; /* Set the height to 600px */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}  
+  
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.event-name {
+    margin: 0;
+    flex-grow: 1; /* Allow the event name to take up all available space */
+    text-align: center;
+}
+  
+.modal-footer {
+    text-align: center;
+    margin-top: auto; /* Adjust spacing between content and button */
+}
+  
+.close-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px; /* Add some border radius for a softer look */
+    padding: 10px 20px; /* Add padding for better appearance */
+    background-color: #000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
+  
+.close-button:hover {
+    color:#ff5733;
+}
+
+.event-modal h2 {
+    margin: 0;
+    color: #ff5733;
+}
+  
+.modal-content {
+    margin-top: 20px;
+}
+  
+.event-info {
+    font-size: 18px;
+    margin: 0;
+}
+  
+.event-description {
+    font-size: 16px;
+    line-height: 1.5;
+}
+  
+  
