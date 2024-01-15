@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import EventList from '@/components/molecules/EventList';
 import Navbar from '../components/molecules/Navbar';
+import DateSelector from '@/components/molecules/DateSelector';
 
 const Home = () => {
   const router = useRouter();
@@ -44,7 +45,7 @@ const Home = () => {
     <div>
       <Navbar isAdmin={isAdmin}/>
       <div className='content'>
-        <EventList />
+        <DateSelector />
       </div>
     </div>
   );

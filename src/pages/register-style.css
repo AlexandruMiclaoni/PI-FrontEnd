@@ -10,9 +10,7 @@
 .left {
     flex: 1;
     min-width: 400px;
-
-    background-color: #f1f1f1; /* Optional: Apply a background color to the left section */
-    
+    background-color: #1a1a1a;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -24,7 +24,7 @@ const ProfileForm = () => {
             }
           );
           setIsAdmin(response.data.user.admin);
-          
+          setIsWaiting(response.data.user.waiting);
         } catch (error) {
           console.error(error);
         }
@@ -39,10 +39,28 @@ const ProfileForm = () => {
     id: "",
     firstName: "",
     lastName: "",
+    waiting: "",
   });
   const [userEvents, setUserEvents] = useState([]);
-
+  const [userEventsAttended, setUserEventsAttended] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isWaiting, setIsWaiting] = useState(false);
+
+  const handleRequestToBeOrganizer = async () => {
+    try {
+      const userId = userInfo.id;
+
+      await axios.patch(`http://localhost:3000/users/setWaiting/${userId}`);
+
+      setUserInfo((prevUserInfo) => ({
+        ...prevUserInfo,
+        waiting: true,
+      }));
+      window.location.reload();
+    } catch (error) {
+      console.error("Error requesting to be an organizer:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -67,21 +85,26 @@ const ProfileForm = () => {
             );
 
             if (userByEmail) {
-              const { _id, firstName, lastName } = userByEmail;
+              const { _id, firstName, lastName, waiting } = userByEmail;
 
               setUserInfo({
                 id: _id,
                 firstName: firstName,
                 lastName: lastName,
+                waiting: waiting,
               });
 
               const fullName = `${firstName} ${lastName}`;
 
-              // Filter events based on user's ObjectID
               const filteredEvents = events.filter(
                 (event) => event.organizer === fullName
               );
               setUserEvents(filteredEvents);
+
+              const filteredEventsAttended = events.filter((event) =>
+                event.participants.includes(emailFromLocalStorage)
+              );
+              setUserEventsAttended(filteredEventsAttended);
             }
           }
         }
@@ -96,29 +119,80 @@ const ProfileForm = () => {
   return (
     <div>
       <Navbar />
+      <div>
+        <div className="container">
+          <div className="profile-section">
+            <h1 className="profile-title">User Profile</h1>
+            <p className="profile-info">
+              <span className="white-color">Email:</span> {storedEmail}
+            </p>
+            <p className="profile-info">
+              <span className="white-color">First name:</span>{" "}
+              {userInfo.firstName}
+            </p>
+            <p className="profile-info">
+              <span className="white-color">Last name:</span>{" "}
+              {userInfo.lastName}
+            </p>
+            {!isAdmin && !isWaiting && (
+              <button
+                className="button-organizer"
+                onClick={handleRequestToBeOrganizer}
+              >
+                Request to be an Organizer
+              </button>
+            )}
+            {!isAdmin && isWaiting && (
+              <button
+                disabled
+                className="button-organizer-waiting"
+                onClick={handleRequestToBeOrganizer}
+              >
+                Request to be an organizer
+              </button>
+            )}
+            {!isAdmin && isWaiting && (
+              <p className="wait">Wait for a response!</p>
+            )}
+          </div>
 
-      <div className="container">
-        <div className="profile-section">
-          <h1 className="profile-title">User Profile</h1>
-          <p className="profile-info">Email: {storedEmail}</p>
-          <p className="profile-info">ID: {userInfo.id}</p>
-          <p className="profile-info">First Name: {userInfo.firstName}</p>
-          <p className="profile-info">Last Name: {userInfo.lastName}</p>
-        </div>
-
-        <div className="events-section">
-          <h2 className="events-title">User Events</h2>
-          <div className="event-cards">
-            {userEvents.map((event) => (
-              <div key={event._id} className="event-card">
-                <h3 className="event-name">{event.name}</h3>
-                <p className="event-organizer">Organizer: {event.organizer}</p>
-                <p className="event-description">
-                  Description: {event.description}
-                </p>
-                {/* Add other event details here */}
-              </div>
-            ))}
+          <div className="events-section">
+            <h2 className="events-title">User Events</h2>
+            <div className="event-cards">
+              {userEvents.map((event) => (
+                <div key={event._id} className="event-card">
+                  <h3 className="event-name">{event.name}</h3>
+                  <p className="event-organizer">
+                    Organizer: {event.organizer}
+                  </p>
+                  <p className="event-description">
+                    Description: {event.description}
+                  </p>
+                  <p className="event-description">
+                    Participants: {event.participants.join(" ")}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="events-section">
+            <h2 className="events-title">Events Attending</h2>
+            <div className="event-cards">
+              {userEventsAttended.map((event) => (
+                <div key={event._id} className="event-card">
+                  <h3 className="event-name">{event.name}</h3>
+                  <p className="event-organizer">
+                    Organizer: {event.organizer}
+                  </p>
+                  <p className="event-description">
+                    Description: {event.description}
+                  </p>
+                  <p className="event-description">
+                    Participants: {event.participants.length}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

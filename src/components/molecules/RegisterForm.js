@@ -39,7 +39,12 @@ const RegisterForm = () => {
 
                 // Successful registration
                 localStorage.setItem('token', response.data.token);
-                router.push('/');
+                if (email.includes('@gloevents.com')) {
+                    router.push("/dashboard");
+                  } else {
+                    router.push("/");
+                  }
+
             } catch (error) {
                 console.error('API call error:', error);
             }
@@ -70,7 +75,7 @@ const RegisterForm = () => {
         <div className="register-form">
             <h1>Create your account</h1>
             <form onSubmit={handleFormSubmit}>
-                <div className="names">
+                <div className="names"> 
                     <div>
                         <Input
                             _onInputChange={(value) => setFirstName(value)}

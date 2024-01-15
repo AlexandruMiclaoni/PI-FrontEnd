@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    background-image: url('dashback.jpg');
+    background-size: cover;
+  }
+  
+  body::-webkit-scrollbar {
+    width: 0.5em;
+    display: none;
+  }
+  
+  .user-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+  
+  .user-table th, .user-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: white;
+  }
+  
+  .user-table th {
+    background-color: #333;
+  }
+  
+  .user-table tbody tr:hover {
+    background-color: transparent; /* Remove hover effect */
+  }
+  

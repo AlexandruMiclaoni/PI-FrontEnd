@@ -4,7 +4,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./navbar.css";
 import { useRouter } from "next/navigation";
-import Link from 'next/link';
+import Link from "next/link";
+import "./CreateEventModal.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+
+
+import CreateEvent from "@/components/molecules/CreateEvent";
 
 const Navbar = ({ isAdmin: propIsAdmin }) => {
   const router = useRouter();
@@ -12,15 +18,18 @@ const Navbar = ({ isAdmin: propIsAdmin }) => {
   const [isAdmin, setIsAdmin] = useState(propIsAdmin);
 
   const logout = () => {
-    const email = localStorage.getItem('email');
-    if (email) {
-      localStorage.removeItem('email');
-      router.push('/login');
-    }
-  }
+    // Clear user-related data from localStorage
+    localStorage.removeItem("email");
+    localStorage.removeItem("token");
+  
+    // Redirect to the login page
+    router.push("/login");
+  };
 
   const handleCreateClick = () => {
-    setIsModalOpen(true);
+    if (isAdmin) {
+      setIsModalOpen(true);
+    }
   };
 
   const handleCloseModal = () => {
@@ -29,17 +38,20 @@ const Navbar = ({ isAdmin: propIsAdmin }) => {
 
   useEffect(() => {
     const checkToken = async () => {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
 
       if (!token) {
         // redirect to RegisterPage if token doesn't exist
-        router.push('/register');
+        router.push("/register");
       } else {
         // verify user with token
         try {
-          const response = await axios.post('http://localhost:3000/register/verify-token', {
-            token: token,
-          });
+          const response = await axios.post(
+            "http://localhost:3000/register/verify-token",
+            {
+              token: token,
+            }
+          );
           setIsAdmin(response.data.user.admin);
         } catch (error) {
           console.error(error);
@@ -54,24 +66,26 @@ const Navbar = ({ isAdmin: propIsAdmin }) => {
     <div>
       <div className="navbar">
         <div className="left">
-          <Link href="/" style={{ color: 'black', textDecoration: 'none' }}>
-            <h1 className="events-title">Events</h1>
+          <Link href="/" style={{ color: "black", textDecoration: "none" }}>
+            <h1 className="title-event">Events</h1>
           </Link>
         </div>
         <div className="right">
           <ul>
+            {/* Show the "Create" button for admins */}
             {isAdmin && (
               <li className="admin-only" onClick={handleCreateClick}>
                 Create
               </li>
             )}
-            <li className="notification">Notification</li>
             <li>
-              <a className="profile"
-                onClick={() => router.push("/profile")}>Profile</a>
+              <a className="profile" onClick={() => router.push("/profile")}>
+                Profile
+              </a>
             </li>
             <li>
-              <button className="logout-btn" onClick={logout}>
+              <button className="logout-btn " onClick={logout}>
+                <FontAwesomeIcon icon={faSignOutAlt} />
               </button>
             </li>
           </ul>
@@ -79,11 +93,11 @@ const Navbar = ({ isAdmin: propIsAdmin }) => {
       </div>
 
       {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            {/* Add your modal content here */}
-            <p>This is the modal content.</p>
-            <button onClick={handleCloseModal}>Close Modal</button>
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-content">
+              <CreateEvent onClose={handleCloseModal} />
+            </div>
           </div>
         </div>
       )}

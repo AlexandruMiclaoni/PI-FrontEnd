@@ -1,0 +1,12 @@
+.map {
+    /* Your initial styles here */
+    transition: top 0.3s ease; /* Adjust the transition duration and easing as needed */
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+
+}
+
+.fixed-map {
+    position: fixed !important;
+    top: 50px !important; /* Adjust the top value based on your requirements */
+}

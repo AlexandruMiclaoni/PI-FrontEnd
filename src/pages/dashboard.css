@@ -1,0 +1,13 @@
+/* dashboard.css */
+
+body {
+    margin: 0; /* Remove default body margin */
+    background-image: url('dashback.jpg'); /* Replace with the correct path */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body::-webkit-scrollbar {
+    width: 0.5em; /* Set the width of the scrollbar */
+    display: none;
+}

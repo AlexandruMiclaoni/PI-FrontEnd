@@ -1,0 +1,30 @@
+body {
+    margin: 0; /* Remove default body margin */
+    background-image: url('dashback.jpg'); /* Replace with the correct path */
+    background-size: cover;
+}
+
+body::-webkit-scrollbar {
+    width: 0.5em; /* Set the width of the scrollbar */
+    display: none;
+}
+
+.user-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto; /* Center the table horizontally */
+  }
+  
+  .user-table th, .user-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: white; /* Set text color to white */
+  }
+  
+  .user-table th {
+    background-color: #333;
+  }
+  
+  /* Remove hover effect */
+  

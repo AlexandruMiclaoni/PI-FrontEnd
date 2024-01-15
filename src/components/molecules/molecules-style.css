@@ -1,9 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* * {box-sizing: border-box;} */
+body {
+    margin: 0;
+    background-image: url('backgroundphotoforms.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Inter', sans-serif;
+}
 
 .register-form {
     width: 300px;
+    color: white; /* Set text color to white */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 50px auto;
 }
 
 .names {
@@ -30,8 +40,7 @@ h3 {
     font-family: 'Inter';
     font-weight: 600;
     font-size: medium;
-    color: rgb(5, 5, 95);
-
+    color: white; /* Set text color to white */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,12 +48,11 @@ h3 {
     cursor: pointer;
 }
 
-
 h1 {
     font-family: 'Inter';
     font-weight: 700;
     font-size: 26px;
-    color: rgb(0, 0, 0);
+    color: white; /* Set text color to white */
     margin-bottom: 40px;
 }
 

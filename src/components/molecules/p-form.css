@@ -1,3 +1,6 @@
+body {
+  background-image: url("../../pages/homepage2.jpg");
+}
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -5,7 +8,11 @@
   font-family: Arial, sans-serif;
   margin-top: 90px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  background-color: #2e3233;
+  border: 1px solid #ccc;
   padding: 40px;
+  border-radius: 20px;
 }
 
 .profile-section {
@@ -15,13 +22,19 @@
 }
 
 .profile-title {
-  font-size: 24px;
+  font-size: 40px;
   margin-bottom: 10px;
+  color: #ff5733;
 }
 
 .profile-info {
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 8px;
+  color: white;
+}
+
+.white-color {
+  color: #ff5733;
 }
 
 .events-section {
@@ -31,6 +44,7 @@
 .events-title {
   font-size: 20px;
   margin-bottom: 10px;
+  color: #ff5733;
 }
 
 .events-list {
@@ -51,24 +65,62 @@
 }
 
 .event-card {
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  width: calc(33.33% - 20px); /* Adjust width as per your layout */
+  width: calc(30% - 32px); /* Adjusted width to fit three cards with 20px gap */
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px;
+  background-color: #2e3233;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 16px;
+  border: 1px solid rgb(205, 205, 205);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  font-size: larger;
+  transition: box-shadow 0.3s ease;
 }
+
 
 .event-name {
   font-size: 18px;
   margin-bottom: 8px;
+  color: #ff5733;
 }
 
 .event-organizer {
-  font-size: 14px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
 .event-description {
   font-size: 14px;
-  color: #666;
+  color: white;
+}
+
+.button-organizer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 30px;
+  width: 50%;
+  border: 1px solid #ccc;
+  background-color: #ff5733;
+}
+
+.button-organizer-waiting {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 30px;
+  width: 50%;
+  border: 1px solid #ccc;
+  color: rgb(66, 66, 66);
+  background-color: grey;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.wait {
+  color: white;
 }

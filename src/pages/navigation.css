@@ -1,0 +1,62 @@
+nav {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    margin-left: 20px;
+  }
+  
+  li:last-child {
+    margin-right: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #ff8800;
+  }
+  
+  .active {
+    color: #ff8800;
+  }
+  
+  .dashboard-cards-container {
+    display: flex;
+    flex-direction: column; /* Change to column */
+    align-items: center; /* Center cards horizontally */
+    margin: 20px;
+  }
+  
+  .dashboard-card {
+    background-color: black; /* Set the background color to black */
+    color: white; /* Set the text color to white */
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 40%; /* Adjust the width if needed */
+    margin: 10px 0; /* Add margin between cards */
+  }
+  
+  .dashboard-card h3 {
+    margin-bottom: 10px;
+  }

@@ -88,6 +88,9 @@ body {
 body {
   color: black;
   background: #f0f0f0;
+  background-image: url('../pages/homepage2.jpg') !important;
+  background-size: 100vh;
+  background-position: center;
 }
 
 a {

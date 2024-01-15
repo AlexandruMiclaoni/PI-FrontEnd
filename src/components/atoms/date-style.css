@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+.active {
+    background-color: #1a1a1a;
+    border-radius: 25px;
+    padding: 5px;
+    color: white !important;
+    border: 2px solid #ff5733; /* Add a border for the active state */
+}
+
+.date-preview {
+    position: relative;
+    width: 642px;
+    height: 69px;
+    margin: 0 auto;
+    flex-shrink: 0;
+    border-radius: 16px;
+    border: 1px solid #1a1a1a;
+    background: #1a1a1a;
+    box-shadow: 0px 4px 18px 1px rgba(0, 0, 0, 0.10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition-property: opacity, background-color;
+}
+
+.date-preview.transition {
+    opacity: 0.7;
+    background-color: #2e3233;
+}
+
+.leftButton,
+.rightButton {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: none;
+}
+
+.leftButton {
+    left: -35px;
+}
+
+.rightButton {
+    right: -35px;
+}
+
+.leftButton:hover,
+.rightButton:hover {
+    background-color: #333333;
+    box-shadow: none;
+}
+
+.date-buttons button {
+    padding: 4px 8px;
+    font-size: 14px;
+    margin-right: 5px;
+    color: #333333;
+}
+
+.date-preview p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+.category-bubble {
+    display: inline-block;
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.categories-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.active-category {
+    background-color: #ff5733; /* Change the background color for the active category */
+    color: white; /* Change the text color for the active category */
+  }
+
+@media (max-width: 768px) {
+    .date-preview {
+        width: 90%;
+        height: auto;
+    }
+
+    .date-preview p {
+        font-size: 14px;
+    }
+}
